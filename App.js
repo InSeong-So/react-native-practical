@@ -25,7 +25,9 @@ export default function App() {
       </View>
       <View style={styles.todoContainer}>
         {todos.map((todo, index) => (
-          <Text key={`${todo}-${index}`}>{todo}</Text>
+          <View style={styles.todoItem} key={`${todo}-${index}`}>
+            <Text style={styles.todoText}>{todo}</Text>
+          </View>
         ))}
       </View>
     </View>
@@ -56,5 +58,14 @@ const styles = StyleSheet.create({
   },
   todoContainer: {
     flex: 5,
+  },
+  todoItem: {
+    margin: 8,
+    padding: 8,
+    borderRadius: 6,
+    backgroundColor: '#5e0acc',
+  },
+  todoText: {
+    color: 'white',
   },
 });
