@@ -22,3 +22,9 @@ React Native는 스타일 상속이 존재하지 없다. color, box 프로퍼티
 
 React Native는 클릭 이벤트가 없으며, Pressable 컴포넌트로 원하는 컴포넌트를 감싸서 작업해야 한다.
 - Pressable, TouchableHightlight, TouchableNativeFeedback, TouchableOpacity 등 다양하게 존재
+
+Image는 React-Native에서 제공하는 코어 컴포넌트로 source 프로퍼티에 require() 구문으로 절대 경로를 입력하여 호출한다. 스타일로 레이아웃을 정할 수 있다.
+
+Expo를 사용하면 루트 경로의 app.json에서 각 배경을 설정할 수 있다.
+
+앱을 완성하고 보면 Native의 상태 표시줄이 보기 불편해지는데, Expo의 StatusBar 컴포넌트가 이를 효과적으로 해결해준다.
