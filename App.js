@@ -4,8 +4,8 @@ export default function App() {
   return (
     <View style={styles.appContainer}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.textInput} placeholder='Please input to your Todo' />
-        <Button title="Add Todo"/>
+        <TextInput style={styles.textInput} placeholder="Please input to your Todo" />
+        <Button title="Add Todo" />
       </View>
       <View style={styles.todoContainer}>
         <Text>Todo List</Text>
@@ -15,28 +15,28 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  appContainer:{
+  appContainer: {
     flex: 1,
     padding: 50,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
   },
   inputContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems:'center',
+    alignItems: 'center',
     marginBottom: 24,
     borderBottomWidth: 1,
-    borderBottomColor: '#cccccc'
+    borderBottomColor: '#cccccc',
   },
   textInput: {
     borderWidth: 1,
     borderColor: '#cccccc',
     width: '70%',
     marginRight: 8,
-    padding: 8
+    padding: 8,
   },
   todoContainer: {
-    flex: 5
-  }
+    flex: 5,
+  },
 });
