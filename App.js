@@ -1,14 +1,32 @@
+import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
+  const [enteredTodoText, setEnteredTodoText] = useState('');
+  const [todos, setTodos] = useState([]);
+
+  const todoInputHandler = (enteredText) => {
+    setEnteredTodoText(enteredText);
+  };
+
+  const addTodoHandler = () => {
+    setTodos((currentTodos) => [...currentTodos, enteredTodoText]);
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.textInput} placeholder="Please input to your Todo" />
-        <Button title="Add Todo" />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Please input to your Todo"
+          onChangeText={todoInputHandler}
+        />
+        <Button title="Add Todo" onPress={addTodoHandler} />
       </View>
       <View style={styles.todoContainer}>
-        <Text>Todo List</Text>
+        {todos.map((todo, index) => (
+          <Text key={`${todo}-${index}`}>{todo}</Text>
+        ))}
       </View>
     </View>
   );
