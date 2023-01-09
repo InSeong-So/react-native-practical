@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const [enteredTodoText, setEnteredTodoText] = useState('');
@@ -24,11 +24,13 @@ export default function App() {
         <Button title="Add Todo" onPress={addTodoHandler} />
       </View>
       <View style={styles.todoContainer}>
-        {todos.map((todo, index) => (
-          <View style={styles.todoItem} key={`${todo}-${index}`}>
-            <Text style={styles.todoText}>{todo}</Text>
-          </View>
-        ))}
+        <ScrollView>
+          {todos.map((todo, index) => (
+            <View style={styles.todoItem} key={`${todo}-${index}`}>
+              <Text style={styles.todoText}>{todo}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
