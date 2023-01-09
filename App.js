@@ -10,8 +10,12 @@ export default function App() {
   const addTodoHandler = (enteredTodoText) => {
     setTodos((currentTodos) => [
       ...currentTodos,
-      { text: enteredTodoText, key: Math.random().toString() },
+      { text: enteredTodoText, id: Math.random().toString() },
     ]);
+  };
+
+  const deleteTodoHandler = (id) => {
+    setTodos((currentTodos) => currentTodos.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -20,8 +24,14 @@ export default function App() {
       <View style={styles.todoContainer}>
         <FlatList
           data={todos}
-          renderItem={(todoMeta) => <TodoItem text={todoMeta.item.text} />}
-          keyExtractor={(item) => item.key}
+          renderItem={(todoMeta) => (
+            <TodoItem
+              id={todoMeta.item.id}
+              text={todoMeta.item.text}
+              onDeleteTodo={deleteTodoHandler}
+            />
+          )}
+          keyExtractor={(item) => item.id}
         ></FlatList>
       </View>
     </View>

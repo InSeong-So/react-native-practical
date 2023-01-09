@@ -19,3 +19,6 @@ React Native는 스타일 상속이 존재하지 없다. color, box 프로퍼티
   - data로 전체 데이터 리스트를, renderItem으로 하위 컴포넌트를 정의하며 metaData까지 합쳐져서 param으로 전달되기 때문에 index, item 프로퍼티를 활용해야 한다. 자식 컴포넌트 자체에 key를 필요로 하지 않는다.
   - FlatList는 자동으로 key를 찾기 때문에 데이터 리스트 하위에 key라는 프로퍼티를 정의해두면 된다.
   - 데이터 리트스에 키를 저장하고 싶지 않다면, 그 대안은 id를 정의하는 것이다. 이것도 싫다면 keyExtractor 라는 프로퍼티를 선언해서 키를 생성하면 된다.
+
+React Native는 클릭 이벤트가 없으며, Pressable 컴포넌트로 원하는 컴포넌트를 감싸서 작업해야 한다.
+- Pressable, TouchableHightlight, TouchableNativeFeedback, TouchableOpacity 등 다양하게 존재
