@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const [enteredTodoText, setEnteredTodoText] = useState('');
@@ -10,7 +10,10 @@ export default function App() {
   };
 
   const addTodoHandler = () => {
-    setTodos((currentTodos) => [...currentTodos, enteredTodoText]);
+    setTodos((currentTodos) => [
+      ...currentTodos,
+      { text: enteredTodoText, key: Math.random().toString() },
+    ]);
   };
 
   return (
@@ -24,13 +27,15 @@ export default function App() {
         <Button title="Add Todo" onPress={addTodoHandler} />
       </View>
       <View style={styles.todoContainer}>
-        <ScrollView>
-          {todos.map((todo, index) => (
-            <View style={styles.todoItem} key={`${todo}-${index}`}>
-              <Text style={styles.todoText}>{todo}</Text>
+        <FlatList
+          data={todos}
+          renderItem={(todoMeta) => (
+            <View style={styles.todoItem}>
+              <Text style={styles.todoText}>{todoMeta.item.text}</Text>
             </View>
-          ))}
-        </ScrollView>
+          )}
+          keyExtractor={(item) => item.key}
+        ></FlatList>
       </View>
     </View>
   );
